@@ -28,20 +28,18 @@ public class SendMessage {
         capabilities.setBrowserName("chrome");
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
         loginMail = new LoginMail(driver);
-
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
     }
-
 
     @Test
     public void sendMessage() {
         String login = ConfigProperties.getProperty("login");
         String password = ConfigProperties.getProperty("password");
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        driver.get("https://mail.yandex.ru");
 
-        driver.get("https://passport.yandex.ru/auth?origin=home_desktop_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F&backpath=https%3A%2F%2Fyandex.ru");
-
+        loginMail.clickSignIn();
         loginMail.inputLogin(login);
         loginMail.clickLogin();
         loginMail.inputPassword(password);
