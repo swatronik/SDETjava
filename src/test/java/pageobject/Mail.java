@@ -13,7 +13,7 @@ public class Mail {
     @FindBy(xpath = "//*[contains(@class, 'mail-MessagesSearchInfo-Title_misc nb-with-xs-left-gap')]")
     private WebElement countMessage;
 
-    @FindBy(xpath = "(//button[@type='button'])[16]")
+    @FindBy(xpath = "//*[contains(@class, 'svgicon svgicon-mail--ComposeButton')]")
     private WebElement buttonSend;
 
     @FindBy(xpath = "//*[contains(@class, 'composeYabbles')]")
@@ -25,7 +25,7 @@ public class Mail {
     @FindBy(xpath = "//*[contains(@class, 'cke_wysiwyg_div cke_reset cke_enable_context_menu cke_editable cke_editable_themed cke_contents_ltr cke_htmlplaceholder')]")
     private WebElement fieldText;
 
-    @FindBy(xpath = "(//button[@type='button'])[26]")
+    @FindBy(xpath = "//*[contains(@class, 'control button2 button2_view_default button2_tone_default button2_size_l button2_theme_action button2_pin_circle-circle ComposeControlPanelButton-Button ComposeControlPanelButton-Button_action')]")
     private WebElement buttonSendMessage;
 
     public WebDriver driver;
