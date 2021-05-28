@@ -7,59 +7,58 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Mail {
 
+    @FindBy(xpath = "//input")
+    private WebElement fieldSearch;
+
+    @FindBy(xpath = "//*[contains(@class, 'mail-MessagesSearchInfo-Title_misc nb-with-xs-left-gap')]")
+    private WebElement countMessage;
+
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    private WebElement buttonSend;
+
+    @FindBy(xpath = "//*[contains(@class, 'composeYabbles')]")
+    private WebElement fieldGetter;
+
+    @FindBy(xpath = "//*[contains(@class, 'composeTextField ComposeSubject-TextField')]")
+    private WebElement fieldTopic;
+
+    @FindBy(xpath = "//*[contains(@class, 'cke_wysiwyg_div cke_reset cke_enable_context_menu cke_editable cke_editable_themed cke_contents_ltr cke_htmlplaceholder')]")
+    private WebElement fieldText;
+
+    @FindBy(xpath = "(//button[@type='button'])[26]")
+    private WebElement buttonSendMessage;
+
     public WebDriver driver;
     public Mail(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//input")
-    private WebElement fieldSearch;
-
     public void inputSearch(String search) {
         fieldSearch.sendKeys(search);
     }
-
-    @FindBy(xpath = "//*[@id='nb-1']/body/div[2]/div[7]/div/div[3]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/span/span")
-    private WebElement countMessage;
 
     public String getCountMessage() {
         return countMessage.getText();
     }
 
-    @FindBy(xpath = "//*[@id='nb-1']/body/div[2]/div[7]/div/div[3]/div[2]/div[2]/div/div/a")
-    private WebElement buttonSend;
-
     public void clickButtonSend() {
         buttonSend.click();
     }
-
-    @FindBy(xpath = "//*[@id='nb-1']/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[1]/div/div/div/div/div")
-    private WebElement fieldGetter;
 
     public void inputGetter(String getter) {
         fieldGetter.sendKeys(getter);
     }
 
-    @FindBy(xpath = "//*[@id='nb-1']/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div/div/input")
-    private WebElement fieldTopic;
-
     public void inputTopic(String topic) {
         fieldTopic.sendKeys(topic);
     }
-
-    @FindBy(xpath = "//*[@id=\"cke_1_contents\"]/div")
-    private WebElement fieldText;
 
     public void inputText(String text) {
         fieldText.sendKeys(text);
     }
 
-    @FindBy(xpath = "//*[@id=\"nb-1\"]/body/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[1]/button")
-    private WebElement buttonSendMessage;
-
     public void clickButtonSendMessage() {
         buttonSendMessage.click();
     }
-
 }
