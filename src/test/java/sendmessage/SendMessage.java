@@ -33,7 +33,7 @@ public class SendMessage {
     }
 
     @Test
-    public void sendMessage() {
+    public void sendMessage() throws InterruptedException {
         String login = ConfigProperties.getProperty("login");
         String password = ConfigProperties.getProperty("password");
 
@@ -61,6 +61,7 @@ public class SendMessage {
         mail.inputTopic("Simbirsoft Тестовое задание " + "Поляков");
         mail.inputText(countMessage);
         mail.clickButtonSendMessage();
+        Thread.sleep(2000);
     }
 
     @AfterClass
